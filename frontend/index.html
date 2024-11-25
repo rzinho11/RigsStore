@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testar Formulário</title>
+</head>
+<body>
+  <form id="contactForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" name="mensagem" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Evita o envio padrão do formulário
+
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        mensagem: form.mensagem.value,
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert(result.message || 'Mensagem enviada com sucesso!');
+        } else {
+          alert(result.message || 'Erro ao enviar mensagem.');
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao conectar com o servidor.');
+      }
+    });
+  </script>
+</body>
+</html>

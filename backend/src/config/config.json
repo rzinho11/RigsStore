@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "S@ntos2011",
+    "database": "rigs_store",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "S@ntos2011",
+    "database": "rigs_store_test",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "S@ntos2011",
+    "database": "rigs_store_prod",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
