@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Product = sequelize.define('Product', {
+const Product = sequelize.define('Products', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -19,7 +19,7 @@ const Product = sequelize.define('Product', {
     allowNull: false,
   },
   categoria: {
-    type: DataTypes.ENUM('eletrônicos', 'roupas', 'alimentos'),
+    type: DataTypes.ENUM('eletronicos', 'roupas', 'alimentos'),
     allowNull: false,
     },
 }, {

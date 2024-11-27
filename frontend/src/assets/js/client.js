@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const tipoCliente = document.querySelector('input[name="tipoCliente"]:checked').value;
   
       try {
-        const response = await fetch('http://localhost:3000/api/clients', {
+        const response = await fetch('http://localhost:3000/api/client', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
